@@ -1,6 +1,6 @@
 from database import create_table
 from student import Student
-from student_service import add_student, delete_student, view_students as get_all_students, update_student, delete_student
+from student_service import add_student, delete_student, view_all_students_with_teacher as get_all_students, update_student, delete_student
 from teacher import Teacher
 from teacher_service import add_teacher, view_teachers as get_all_teachers, update_teacher, delete_teacher
 
@@ -37,7 +37,11 @@ while True:
         print("\nList of Students:")
 
         for student in students:
-            print(student)
+            student_id, name, age, grade, teacher_name, subject = student
+            if teacher_name:
+                print(f"ID: {student_id}, Name: {name}, Age: {age}, Grade: {grade}, Teacher: {teacher_name}, Subject: {subject}")
+            else:
+                print(f"ID: {student_id}, Name: {name}, Age: {age}, Grade: {grade}, Teacher: Not assigned")
 
     elif choice == '3':
         student_id = int(input("Enter student ID: "))

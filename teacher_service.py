@@ -10,8 +10,8 @@ def add_teacher(teacher):
           (teacher.teacher_id, 
            teacher.name,
            teacher.age,
-           teacher.salary,
-           teacher.subject))
+           teacher.subject,
+           teacher.salary))
     
     conn.commit()
     conn.close()

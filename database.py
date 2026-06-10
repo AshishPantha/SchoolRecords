@@ -10,12 +10,12 @@ def create_table():
 
   cursor.execute('''
     CREATE TABLE IF NOT EXISTS students (
-      course_id INTEGER PRIMARY KEY,
+      student_id INTEGER PRIMARY KEY,
       name TEXT NOT NULL,
       age INTEGER,
       grade TEXT,
       teacher_id INTEGER,
-      FOREIGN KEY (teacher_id) REFERENCES teachers(id)
+      FOREIGN KEY (teacher_id) REFERENCES teachers(teacher_id)
     )
   ''')
   
@@ -23,7 +23,7 @@ def create_table():
 
   cursor.execute('''
     CREATE TABLE IF NOT EXISTS teachers (
-      id INTEGER PRIMARY KEY,
+      teacher_id INTEGER PRIMARY KEY,
       name TEXT NOT NULL,
       age INTEGER,
       subject TEXT,
